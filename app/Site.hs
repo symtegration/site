@@ -9,4 +9,10 @@ import Hakyll
 import Symtegration.Site.Rules
 
 main :: IO ()
-main = hakyll rules
+main = hakyllWith config rules
+
+config :: Configuration
+config =
+  defaultConfiguration
+    { providerDirectory = "site"
+    }

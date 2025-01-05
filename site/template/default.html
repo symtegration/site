@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    $-if(front)$
+    <title>Symtegration</title>
+    $-else$
+    <title>$title$ - Symtegration</title>
+    $-endif$
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hakyll">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    $-if(description)$
+    <meta name="description" content="$description$">
+    $-endif$
+
+    <link rel="icon" type="image/png" href="/image/symtegration.png">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/katex.min.css"
+          integrity="sha384-7lU0muIg/i1plk7MgygDUp3/bNRA65orrBub4/OSWHECgwEsY83HaS1x3bljA/XV"
+          crossorigin="anonymous">
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/katex.min.js"
+            integrity="sha384-RdymN7NRJ+XoyeRY4185zXaxq9QWOOx3O7beyyrRK4KQZrPlCDQQpCu95FoCGPAE"
+            crossorigin="anonymous"></script>
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.19/dist/contrib/auto-render.min.js"
+            integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+
+    $-if(head-extra)$
+    $-head-extra$
+    $-endif$
+  </head>
+
+  <body>
+    <main>
+      <h1>$title$</h1>
+
+      $-body$
+    </main>
+
+    <footer>
+      <p>Content licensed under the <a href="/LICENSE">Apache-2.0 license</a></p>
+    </footer>
+  </body>
+</html>

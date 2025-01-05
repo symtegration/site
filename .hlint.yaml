@@ -1,0 +1,21 @@
+# HLint configuration file
+# https://github.com/ndmitchell/hlint
+##########################
+
+
+- arguments: [-XGHC2021, -XOverloadedStrings, -XLambdaCase]
+
+
+##########################
+# Custom hints
+
+# Use context with site-specific customizations.
+- warning: {lhs: defaultContext, rhs: siteContext}
+
+# siteContext is defined in terms of defaultContext.
+# Do not warn about the use of defaultContext in this definition.
+- ignore: {name: Use siteContext, within: Symtegration.Site.Context}
+
+# Avoid obscure operators.
+# At least, using these makes it harder for me to read the code.
+- ignore: {name: "Use <&>"}
