@@ -1,0 +1,25 @@
+# Custom configuration to let Stack and Cabal know what to do with
+# the Haskell source files in the site/ directory.
+# This allows the Haskell Language Server to work with these files as well.
+
+cradle:
+  multi:
+    - path: "./site"
+      config:
+        cradle:
+          stack:
+          - path: "./site"
+            component: "symtegration-site:exe:site"
+
+    - path: "./"
+      config:
+        cradle:
+          stack:
+          - path: "./src"
+            component: "symtegration-site:lib"
+          - path: "./app"
+            component: "symtegration-site:exe:site"
+
+dependencies:
+  - package.yaml
+  - stack.yaml

@@ -1,0 +1,50 @@
+name:                symtegration-site
+version:             0.1.0
+github:              "symtegration/site"
+license:             Apache-2.0
+author:              "Yoo Chung"
+maintainer:          "dev@chungyc.org"
+copyright:           "Copyright 2025 Yoo Chung"
+
+extra-source-files:
+- README.md
+- docs/**
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Hakyll project for generating the web site for [Symtegration](https://symtegration.dev/).
+
+language: GHC2021
+
+default-extensions:
+- LambdaCase
+- OverloadedStrings
+
+ghc-options:
+- -Wall
+- -Werror
+
+dependencies:
+- base
+- blaze-html
+- clay
+- hakyll
+
+library:
+  source-dirs: src
+
+executables:
+  site:
+    main:                Site.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - symtegration-site

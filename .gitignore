@@ -1,0 +1,6 @@
+stack.yaml.lock
+_site/
+_cache/
+.stack-work/
+*.cabal
+*~
