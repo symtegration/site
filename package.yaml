@@ -32,6 +32,7 @@ ghc-options:
 dependencies:
 - base
 - blaze-html
+- bytestring
 - clay
 - hakyll
 
