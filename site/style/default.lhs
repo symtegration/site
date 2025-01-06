@@ -137,7 +137,7 @@ footerStyle = do
     borderTopWidth $ px 1
 
     fontSize $ em 0.75
-    opacity $ 0.75
+    opacity 0.75
 \end{code}
 
 \begin{code}
