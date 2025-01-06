@@ -22,7 +22,7 @@ rules = do
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
   match "integral/**" $ do
-    route $ toIndex
+    route toIndex
     compile $
       haskellCompiler []
         >>= pure . fmap unpack
