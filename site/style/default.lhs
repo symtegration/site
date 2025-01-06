@@ -83,6 +83,12 @@ headingStyle = do
 
   h2 <> h3 <> h4 <> h5 <> h6 ? do
     fontFamily ["Charm"] [serif]
+
+  h2 ? fontSize (em 2)
+  h3 ? fontSize (em 1.6)
+  h4 ? fontSize (em 1.3)
+  h5 ? fontSize (em 1.1)
+  h6 ? fontSize (em 1)
 \end{code}
 
 \begin{code}
@@ -150,6 +156,8 @@ lightColorScheme = do
 
   h1 ? do
     color $ rgb 0 0 125
+
+  headingColors $ \n -> rgb (n * 10) (n * 10) (120 + n * 10)
 \end{code}
 
 \begin{code}
@@ -163,5 +171,17 @@ darkColorScheme = do
   a # visited ? color pink
 
   h1 ? do
-    color $ rgb 0 0 235
+    color $ rgb 50 50 245
+
+  headingColors $ \n -> rgb 100 100 (255 - n * 10)
+\end{code}
+
+\begin{code}
+headingColors :: (Integer -> Color) -> Css
+headingColors mapColor = do
+  h2 ? fontColor (mapColor 2)
+  h3 ? fontColor (mapColor 3)
+  h4 ? fontColor (mapColor 4)
+  h5 ? fontColor (mapColor 5)
+  h6 ? fontColor (mapColor 6)
 \end{code}
