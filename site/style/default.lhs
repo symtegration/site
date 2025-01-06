@@ -3,6 +3,7 @@
 \begin{code}
 import Clay
 import Clay.Media qualified as Media
+import Data.Text (Text)
 \end{code}
 
 \begin{code}
@@ -38,9 +39,29 @@ putSyntaxImports = do
 \begin{code}
 defaultStyle :: Css
 defaultStyle = do
+  fontDefinitions
   genericStyle
   codeStyle
   mediaStyles
+\end{code}
+
+\subsection{Definition of fonts}
+
+\begin{code}
+fontDefinitions :: Css
+fontDefinitions = do
+  importUrl "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nova+Mono&display=swap"
+\end{code}
+
+\begin{code}
+geistMono :: Text
+geistMono = "Geist Mono"
+
+notoSans :: Text
+notoSans = "Noto Sans"
+
+novaMono :: Text
+novaMono = "Nova Mono"
 \end{code}
 
 \subsection{Generic style}
@@ -68,27 +89,42 @@ bodyStyle = do
     marginLeft $ em 2
     marginRight $ em 2
 
-    fontFamily ["Noto Sans"] [sansSerif]
+    fontFamily [notoSans] [sansSerif]
 \end{code}
 
 \begin{code}
 headingStyle :: Css
 headingStyle = do
   h1 <> h2 <> h3 <> h4 <> h5 <> h6 ? do
-    textAlign center
+    -- textAlign center
+    textAlign $ alignSide sideLeft
+    fontFamily [novaMono] [sansSerif]
 
   h1 ? do
-    fontFamily ["Quintessential"] [serif]
     fontSize $ em 3
 
-  h2 <> h3 <> h4 <> h5 <> h6 ? do
-    fontFamily ["Charm"] [serif]
+  h2 ? do
+    fontSize $ em 2
 
-  h2 ? fontSize (em 2)
-  h3 ? fontSize (em 1.6)
-  h4 ? fontSize (em 1.3)
-  h5 ? fontSize (em 1.1)
-  h6 ? fontSize (em 1)
+  h3 ? do
+    fontSize $ em 1.6
+    textDecorationLine underline
+    textDecorationStyle dotted
+
+  h4 ? do
+    fontSize $ em 1.3
+    textDecorationLine underline
+    textDecorationStyle dashed
+
+  h5 ? do
+    fontSize $ em 1.1
+    textDecorationLine underline
+    textDecorationStyle solid
+
+  h6 ? do
+    fontSize $ em 1
+    textDecorationLine underline
+    textDecorationStyle double
 \end{code}
 
 \begin{code}
@@ -111,6 +147,8 @@ listsStyle = do
   li |> (ul <> ol) ? marginTop (em 0.75)
 \end{code}
 
+\subsection{Code style}
+
 \begin{code}
 codeStyle :: Css
 codeStyle = do
@@ -123,8 +161,10 @@ codeStyle = do
     marginLeft $ em 3
     sym padding $ em 0.5
 
-    fontFamily ["Geist Mono"] [monospace]
+    fontFamily [geistMono] [monospace]
 \end{code}
+
+\subsection{Media-specific styles}
 
 \begin{code}
 mediaStyles :: Css
