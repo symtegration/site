@@ -100,6 +100,8 @@ which you try out by [running on mybinder.org].
 
 *   [Source repository](https://github.com/symtegration/symtegration)
 
+*   [Library documentation](https://doc.symtegration.dev/symtegration-0.3.0/Symtegration.html)
+
 *   Primary maintainer
 
     *   [Yoo Chung](https://chungyc.org) &mdash; [`@chungyc`](https://github.com/chungyc) on GitHub
