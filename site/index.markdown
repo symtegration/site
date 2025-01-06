@@ -14,6 +14,10 @@ Just "x + (x ** 4)"
 Just "atan x"
 ```
 
+## Project information {#information}
+
 *   [Source repository](https://github.com/symtegration/symtegration)
+
 *   Primary maintainer
+
     *   [Yoo Chung](https://chungyc.org) &mdash; [`@chungyc`](https://github.com/chungyc) on GitHub

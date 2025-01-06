@@ -56,6 +56,7 @@ genericStyle = do
   bodyStyle
   headingStyle
   footerStyle
+  listsStyle
 \end{code}
 
 \begin{code}
@@ -66,6 +67,8 @@ bodyStyle = do
     marginBottom $ em 1
     marginLeft $ em 2
     marginRight $ em 2
+
+    fontFamily ["Noto Sans"] [sansSerif]
 \end{code}
 
 \begin{code}
@@ -77,6 +80,9 @@ headingStyle = do
   h1 ? do
     fontFamily ["Quintessential"] [serif]
     fontSize $ em 3
+
+  h2 <> h3 <> h4 <> h5 <> h6 ? do
+    fontFamily ["Charm"] [serif]
 \end{code}
 
 \begin{code}
@@ -93,6 +99,13 @@ footerStyle = do
 \end{code}
 
 \begin{code}
+listsStyle :: Css
+listsStyle = do
+  li |+ li ? marginTop (em 0.75)
+  li |> (ul <> ol) ? marginTop (em 0.75)
+\end{code}
+
+\begin{code}
 codeStyle :: Css
 codeStyle = do
   div # ".sourceCode" ? do
@@ -103,6 +116,8 @@ codeStyle = do
     marginRight $ em 3
     marginLeft $ em 3
     sym padding $ em 0.5
+
+    fontFamily ["Geist Mono"] [monospace]
 \end{code}
 
 \begin{code}
