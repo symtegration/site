@@ -96,7 +96,6 @@ bodyStyle = do
 headingStyle :: Css
 headingStyle = do
   h1 <> h2 <> h3 <> h4 <> h5 <> h6 ? do
-    -- textAlign center
     textAlign $ alignSide sideLeft
     fontFamily [novaMono] [sansSerif]
 
