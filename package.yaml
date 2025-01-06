@@ -31,10 +31,9 @@ ghc-options:
 
 dependencies:
 - base
-- blaze-html
 - bytestring
-- clay
 - hakyll
+- pandoc
 
 library:
   source-dirs: src
@@ -49,3 +48,6 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - symtegration-site
+    # Not directly used by the executable, but by input Haskell code.
+    - blaze-html
+    - clay
