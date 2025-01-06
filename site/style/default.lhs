@@ -163,5 +163,5 @@ darkColorScheme = do
   a # visited ? color pink
 
   h1 ? do
-    color $ rgb 255 255 125
+    color $ rgb 0 0 235
 \end{code}
