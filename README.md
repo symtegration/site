@@ -7,15 +7,15 @@ This is a [Hakyll] project which generates the web site for [Symtegration].
 
 ## Directories
 
-* `site/` : Web site content
+* [`site/`](site/) : Web site content
 
-  * `index.markdown` : Front page
+  * [`index.markdown`](site/index.markdown) : Front page
 
-  * `style/` : Stylesheets
+  * [`style/`](site/style/) : Stylesheets
 
-  * `image/` : Images
+  * [`image/`](site/image/) : Images
 
-* `src/` : Hakyll rules for generating the web site
+* [`src/`](src/Symtegration/Site/) : Hakyll rules for generating the web site
 
 ## Changes
 
