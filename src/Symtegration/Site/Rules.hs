@@ -21,7 +21,7 @@ rules = do
       pandocCompiler
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
-  match "integral/**" $ do
+  match ("integral/**.hs" .||. "integral/**.lhs") $ do
     route toIndex
     compile $
       haskellCompiler []

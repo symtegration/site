@@ -42,6 +42,7 @@ defaultStyle = do
   fontDefinitions
   genericStyle
   codeStyle
+  integralTableStyle
   mediaStyles
 \end{code}
 
@@ -154,13 +155,24 @@ codeStyle = do
   div # ".sourceCode" <> pre # ".shell" ? do
     borderStyle solid
     borderWidth $ px 1
-    marginTop $ em 1
-    marginBottom $ em 1
-    marginRight $ em 3
-    marginLeft $ em 3
+    sym2 margin (em 1) (em 3)
     sym padding $ em 0.5
 
     fontFamily [geistMono] [monospace]
+\end{code}
+
+\begin{code}
+integralTableStyle :: Css
+integralTableStyle = do
+  table # ".integrals" ? do
+    thead ? do
+      tr |> th ? do
+        width $ pct 25
+        paddingBottom $ em 1
+
+    th <> td ? do
+      sym2 padding (em 0.5) (em 1)
+      textAlign center
 \end{code}
 
 \subsection{Media-specific styles}

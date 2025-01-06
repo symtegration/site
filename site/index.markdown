@@ -48,6 +48,14 @@ Concrete numbers can also be computed from these integrals.  For example:
 Just (1110 % 2401)
 ```
 
+To see more examples, see the following.
+
+*   [Basic integrals](integral/basic/)
+
+*   [Integrals with symbols](integral/symbols/)
+
+*   [Rational function integration](integral/rational/)
+
 ### Symbolic integration in GHCi {#ghci}
 
 With Symtegration, symbolic integration can be done within [GHCi].

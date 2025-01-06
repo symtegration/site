@@ -6,7 +6,8 @@
 module Symtegration.Site.Route where
 
 import Hakyll
+import System.FilePath (dropExtensions)
 
 -- | Route it to @index.html@.
 toIndex :: Routes
-toIndex = setExtension "/index.html"
+toIndex = customRoute $ (<> "/index.html") . dropExtensions . toFilePath
