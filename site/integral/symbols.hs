@@ -34,6 +34,7 @@ expressions =
   [ "a",
     "a" / "b",
     sin ("a" * x),
+    exp "a" * sin "x",
     x * log ("a" * x ** 2),
     log ("a" + "x") + log ("b" * "x")
   ]
