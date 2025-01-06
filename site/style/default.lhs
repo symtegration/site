@@ -74,6 +74,7 @@ genericStyle = do
     textRendering optimizeLegibility
     textAlign justify
     hyphens auto
+    lineHeight $ unitless 1.25
 
   bodyStyle
   headingStyle
@@ -97,7 +98,7 @@ bodyStyle = do
 headingStyle :: Css
 headingStyle = do
   h1 <> h2 <> h3 <> h4 <> h5 <> h6 ? do
-    textAlign $ alignSide sideLeft
+    textAlign center
     fontFamily [novaMono] [sansSerif]
 
   h1 ? do
@@ -165,6 +166,9 @@ codeStyle = do
 integralTableStyle :: Css
 integralTableStyle = do
   table # ".integrals" ? do
+    marginLeft auto
+    marginRight auto
+
     thead ? do
       tr |> th ? do
         width $ pct 25
