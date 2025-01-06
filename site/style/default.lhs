@@ -108,7 +108,7 @@ listsStyle = do
 \begin{code}
 codeStyle :: Css
 codeStyle = do
-  div # ".sourceCode" ? do
+  div # ".sourceCode" <> pre # ".shell" ? do
     borderStyle solid
     borderWidth $ px 1
     marginTop $ em 1
@@ -147,6 +147,9 @@ lightColorScheme = do
 
   a # link ? color blue
   a # visited ? color purple
+
+  h1 ? do
+    color $ rgb 0 0 125
 \end{code}
 
 \begin{code}
@@ -158,4 +161,7 @@ darkColorScheme = do
 
   a # link ? color cyan
   a # visited ? color pink
+
+  h1 ? do
+    color $ rgb 255 255 125
 \end{code}
