@@ -5,6 +5,18 @@ This is a [Hakyll] project which generates the web site for [Symtegration].
 [Hakyll]: https://jaspervdj.be/hakyll/
 [Symtegration]: https://symtegration.dev/
 
+## Directories
+
+* `site/` : Web site content
+
+  * `index.markdown` : Front page
+
+  * `style/` : Stylesheets
+
+  * `image/` : Images
+
+* `src/` : Hakyll rules for generating the web site
+
 ## Changes
 
 See [`CHANGELOG.md`] for what has changed.

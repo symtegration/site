@@ -5,21 +5,27 @@
 -- Maintainer: dev@chungyc.org
 module Symtegration.Site.Rules where
 
+import Data.ByteString.Lazy.Char8 (unpack)
 import Hakyll
 import Symtegration.Site.Compiler
 import Symtegration.Site.Context
+import Symtegration.Site.Route
 import Text.Pandoc.Highlighting (pygments, styleToCss, zenburn)
 
 -- | Hakyll rules to generate the web site.
 rules :: Rules ()
 rules = do
-  match "template/**" $ do
-    compile templateBodyCompiler
-
   match "index.markdown" $ do
     route $ setExtension "html"
     compile $
       pandocCompiler
+        >>= loadAndApplyTemplate "template/default.html" siteContext
+
+  match "integral/**" $ do
+    route $ toIndex
+    compile $
+      haskellCompiler []
+        >>= pure . fmap unpack
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
   match ("style/**.hs" .||. "style/**.lhs") $ do
@@ -40,6 +46,9 @@ rules = do
     route idRoute
     compile copyFileCompiler
 
-  match "LICENSE" $ do
+  match "LICENSE.txt" $ do
     route idRoute
     compile copyFileCompiler
+
+  match "template/**" $ do
+    compile templateBodyCompiler
