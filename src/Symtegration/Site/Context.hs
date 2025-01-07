@@ -6,6 +6,7 @@
 module Symtegration.Site.Context where
 
 import Hakyll
+import System.FilePath (takeBaseName)
 
 -- | Custom context to use instead of 'defaultContext'.
 siteContext :: Context String
@@ -26,3 +27,9 @@ cleanupIndexUrl url@('/' : _) -- only clean up local URLs
   where
     prefix = needlePrefix "index.html" url
 cleanupIndexUrl url = url
+
+-- | Custom context used when including examples of integrals in the main example page.
+integralExampleContext :: Context String
+integralExampleContext = field "anchor" anchor <> siteContext
+  where
+    anchor item = pure $ takeBaseName $ toFilePath $ itemIdentifier item

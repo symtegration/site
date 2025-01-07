@@ -43,7 +43,7 @@ rules = do
             mconcat
               [ constField "title" "Integration examples",
                 constField "description" "Example of integrals supported by Symtegration.",
-                listField "examples" siteContext $ pure examples,
+                listField "examples" integralExampleContext $ pure examples,
                 siteContext
               ]
       makeItem ""
