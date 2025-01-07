@@ -1,0 +1,20 @@
+<p>
+Each section can also be perused in their own page:
+</p>
+
+<ul>
+$for(examples)$
+<li><a href="$url$">$title$</a></li>
+$endfor$
+</ul>
+
+Both sides of each equation was generated directly as LaTeX output with Symtegration,
+with the integration having been done by Symtegration as well.
+Integrals that Symtegration cannot derive yet are denoted by \(\bot\).
+
+$for(examples)$
+<section>
+<h2>$title$</h2>
+$body$
+</section>
+$endfor$

@@ -21,14 +21,36 @@ rules = do
       pandocCompiler
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
-  match ("integral/**.hs" .||. "integral/**.lhs") $ do
+  match ("**.markdown" .&&. complement "index.markdown") $ do
+    route toIndex
+    compile $
+      pandocCompiler
+        >>= loadAndApplyTemplate "template/default.html" siteContext
+
+  match "integral/**.hs" $ do
     route toIndex
     compile $
       haskellCompiler []
         >>= pure . fmap unpack
+        >>= saveSnapshot "example"
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
-  match ("style/**.hs" .||. "style/**.lhs") $ do
+  create ["integral/index.html"] $ do
+    route idRoute
+    compile $ do
+      examples <- chronological =<< loadAllSnapshots "integral/**.hs" "example"
+      let exampleContext =
+            mconcat
+              [ constField "title" "Integration examples",
+                constField "description" "Example of integrals supported by Symtegration.",
+                listField "examples" siteContext $ pure examples,
+                siteContext
+              ]
+      makeItem ""
+        >>= loadAndApplyTemplate "template/examples.html" exampleContext
+        >>= loadAndApplyTemplate "template/default.html" exampleContext
+
+  match "style/**.lhs" $ do
     route $ setExtension "css"
     compile $ haskellCompiler []
 

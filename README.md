@@ -11,7 +11,7 @@ This is a [Hakyll] project which generates the web site for [Symtegration].
 
   * [`index.markdown`](site/index.markdown) : Front page
 
-  * [`integral`](site/integral/) : List of integrals
+  * [`integral/`](site/integral/) : List of integrals
 
   * [`style/`](site/style/) : Stylesheets
 

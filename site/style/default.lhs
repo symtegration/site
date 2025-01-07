@@ -19,10 +19,10 @@ main = do
 
 \begin{code}
 narrowWidth :: Size LengthUnit
-narrowWidth = em 30
+narrowWidth = em 40
 
 wideWidth :: Size LengthUnit
-wideWidth = em 60
+wideWidth = em 80
 \end{code}
 
 \subsection{Imports}
@@ -42,7 +42,6 @@ defaultStyle = do
   fontDefinitions
   genericStyle
   codeStyle
-  integralTableStyle
   mediaStyles
 \end{code}
 
@@ -77,6 +76,7 @@ genericStyle = do
     lineHeight $ unitless 1.25
 
   bodyStyle
+  navStyle
   headingStyle
   footerStyle
   listsStyle
@@ -86,12 +86,25 @@ genericStyle = do
 bodyStyle :: Css
 bodyStyle = do
   body ? do
-    marginTop $ em 1
-    marginBottom $ em 1
-    marginLeft $ em 2
-    marginRight $ em 2
+    sym2 margin (em 1) (em 2)
 
     fontFamily [notoSans] [sansSerif]
+\end{code}
+
+\begin{code}
+navStyle :: Css
+navStyle = do
+  nav # ".site" ? do
+    float floatRight
+    textAlign $ alignSide sideRight
+    textShadow (em 0.25) (em 0.25) (em 0.2) (rgba 125 125 125 0.5)
+    fontVariant smallCaps
+    fontSize $ pct 120
+
+    a ? do
+      display block
+      marginLeft $ em 3
+      marginBottom $ em 1
 \end{code}
 
 \begin{code}
@@ -132,6 +145,7 @@ headingStyle = do
 footerStyle :: Css
 footerStyle = do
   footer ? do
+    clear both
     textAlign center
     marginTop $ em 1
     borderTopStyle solid
@@ -156,27 +170,10 @@ codeStyle = do
   div # ".sourceCode" <> pre # ".shell" ? do
     borderStyle solid
     borderWidth $ px 1
-    sym2 margin (em 1) (em 3)
+    sym2 margin (em 1) (em 6)
     sym padding $ em 0.5
 
     fontFamily [geistMono] [monospace]
-\end{code}
-
-\begin{code}
-integralTableStyle :: Css
-integralTableStyle = do
-  table # ".integrals" ? do
-    marginLeft auto
-    marginRight auto
-
-    thead ? do
-      tr |> th ? do
-        width $ pct 25
-        paddingBottom $ em 1
-
-    th <> td ? do
-      sym2 padding (em 0.5) (em 1)
-      textAlign center
 \end{code}
 
 \subsection{Media-specific styles}
@@ -188,6 +185,19 @@ mediaStyles = do
     body ? do
       marginLeft $ em 1
       marginRight $ em 1
+
+    nav # ".site" ? do
+      float none
+      textAlign center
+      marginTop $ em 1
+      marginBottom $ em 1
+      a ? do
+        display inline
+        marginLeft $ em 1
+        marginRight $ em 1
+
+    div # ".sourceCode" <> pre # ".shell" ? do
+      sym2 margin (em 1) (em 3)
 
   query Media.all [Media.minWidth wideWidth] $ do
     body ? do

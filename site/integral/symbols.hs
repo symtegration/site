@@ -1,5 +1,3 @@
-module Main where
-
 import Data.ByteString.Lazy qualified as ByteString
 import Data.Text (Text)
 import Symtegration
@@ -11,16 +9,12 @@ main :: IO ()
 main = ByteString.putStr $ renderHtml $ do
   p "These are examples of integrals with symbols other than the variable integrated by Symtegration."
 
-  table ! class_ "integrals" $ do
-    thead $ tr $ th "Haskell" >> th "\\(f\\)" >> th "\\(\\int f \\, dx\\)"
-    tbody $ mapM_ showExpr expressions
+  mapM_ showExpr expressions
 
 showExpr :: Expression -> Html
-showExpr e = tr $ do
-  td $ code $ toHtml $ toHaskell e
-  td $ toHtml $ "\\(" <> toLaTeX e <> "\\)"
-  td $ toHtml $ "\\(" <> t <> "\\)"
+showExpr e = p $ toHtml equation
   where
+    equation = "\\( \\int " <> toLaTeX e <> " \\, dx = " <> t <> " \\)"
     t
       | Just e' <- integrate "x" e = toLaTeX e'
       | otherwise = "\\bot"
