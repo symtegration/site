@@ -14,6 +14,7 @@ import Prelude hiding (div)
 \begin{code}
 main :: IO ()
 main = do
+  fontDefinitions
   putSyntaxStyles
   putCss defaultStyle
 \end{code}
@@ -31,7 +32,6 @@ wideWidth = em 80
 \begin{code}
 defaultStyle :: Css
 defaultStyle = do
-  fontDefinitions
   genericStyle
   codeStyle
   badgesStyle
@@ -41,9 +41,9 @@ defaultStyle = do
 \subsection{Definition of fonts}
 
 \begin{code}
-fontDefinitions :: Css
-fontDefinitions = do
-  importUrl "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nova+Mono&display=swap"
+fontDefinitions :: IO ()
+fontDefinitions =
+  putStrLn "@import url(https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nova+Mono&display=swap);"
 \end{code}
 
 \begin{code}
