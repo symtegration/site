@@ -30,6 +30,10 @@ extra-deps:
   commit: '7d49eca9f48adf6740dcb3a7934872e3b91a30e6'
 ```
 
+See the [library documentation] for more details as to how to use the library.
+
+[library documentation]: https://doc.symtegration.dev/symtegration-0.3.0/Symtegration.html
+
 ## GHCi {#ghci}
 
 With Symtegration, symbolic integration can be done within [GHCi].
