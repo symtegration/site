@@ -148,11 +148,16 @@ footerStyle = do
     clear both
     textAlign center
     marginTop $ em 1
+    paddingTop $ em 1
     borderTopStyle solid
     borderTopWidth $ px 1
 
     fontSize $ em 0.75
     opacity 0.75
+
+    p ? do
+      marginTop $ em 0.25
+      marginBottom $ em 0.25
 \end{code}
 
 \begin{code}
