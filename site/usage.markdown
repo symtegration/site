@@ -3,6 +3,33 @@ title: How to use Symtegration
 description: Instructions on how to use Symtegration, a Haskell library for symbolic integration.
 ---
 
+## Installation {#install}
+
+For using the Symtegration library locally, clone the source repository, build, and install it.
+
+```shell
+$ git clone git@github.com:symtegration/symtegration.git
+$ cd symtegration
+$ stack build
+$ stack install
+```
+
+You can then use Symtegration in [GHCi](#ghci) or local Haskell projects.
+If you use [Cabal] instead of [Stack], then you can run `cabal build` and `cabal install`, instead.
+
+[Cabal]: https://www.haskell.org/cabal/
+
+[Stack]: https://docs.haskellstack.org/
+
+To use as a library in a Haskell Stack project, at the following to the `extra-deps` field in `stack.yaml`,
+and add `symtegration` as a dependency to the appropriate build targets.
+
+```yaml
+extra-deps:
+- git: https://github.com/symtegration/symtegration
+  commit: '7d49eca9f48adf6740dcb3a7934872e3b91a30e6'
+```
+
 ## GHCi {#ghci}
 
 With Symtegration, symbolic integration can be done within [GHCi].
