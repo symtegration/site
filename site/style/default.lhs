@@ -74,7 +74,7 @@ genericStyle = do
     textRendering optimizeLegibility
     textAlign justify
     hyphens auto
-    lineHeight $ unitless 1.25
+    lineHeight $ unitless 1.75
 
   bodyStyle
   navStyle
@@ -105,7 +105,7 @@ navStyle = do
     a ? do
       display block
       marginLeft $ em 3
-      marginBottom $ em 1
+      marginBottom $ em 0.5
 \end{code}
 
 \begin{code}
