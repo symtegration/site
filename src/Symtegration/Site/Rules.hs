@@ -10,7 +10,6 @@ import Hakyll
 import Symtegration.Site.Compiler
 import Symtegration.Site.Context
 import Symtegration.Site.Route
-import Text.Pandoc.Highlighting (pygments, styleToCss, zenburn)
 
 -- | Hakyll rules to generate the web site.
 rules :: Rules ()
@@ -66,16 +65,6 @@ rules = do
   match "style/**.lhs" $ do
     route $ setExtension "css"
     compile $ haskellCompiler []
-
-  -- Syntax highlighting in light mode.
-  create ["style/syntax-light.css"] $ do
-    route idRoute
-    compile $ makeItem $ styleToCss pygments
-
-  -- Syntax highlighting in dark mode.
-  create ["style/syntax-dark.css"] $ do
-    route idRoute
-    compile $ makeItem $ styleToCss zenburn
 
   match "image/**.png" $ do
     route idRoute

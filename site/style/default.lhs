@@ -4,6 +4,7 @@
 import Clay
 import Clay.Media qualified as Media
 import Data.Text (Text)
+import Text.Pandoc.Highlighting (pygments, styleToCss, zenburn)
 \end{code}
 
 \begin{code}
@@ -13,7 +14,7 @@ import Prelude hiding (div)
 \begin{code}
 main :: IO ()
 main = do
-  putSyntaxImports
+  putSyntaxStyles
   putCss defaultStyle
 \end{code}
 
@@ -23,15 +24,6 @@ narrowWidth = em 40
 
 wideWidth :: Size LengthUnit
 wideWidth = em 80
-\end{code}
-
-\subsection{Imports}
-
-\begin{code}
-putSyntaxImports :: IO ()
-putSyntaxImports = do
-  putStrLn "@import \"syntax-light.css\" all and (prefers-color-scheme: light);"
-  putStrLn "@import \"syntax-dark.css\" all and (prefers-color-scheme: dark);"
 \end{code}
 
 \subsection{Style}
@@ -262,4 +254,19 @@ headingColors mapColor = do
   h4 ? fontColor (mapColor 4)
   h5 ? fontColor (mapColor 5)
   h6 ? fontColor (mapColor 6)
+\end{code}
+
+\begin{code}
+putSyntaxStyles :: IO ()
+putSyntaxStyles = do
+  putStrLn ""
+  putStrLn "/* Generated for syntax highlighting from skylighting. */"
+
+  putStrLn "@media all and (prefers-color-scheme: light) {"
+  putStrLn $ styleToCss pygments
+  putStrLn "}"
+
+  putStrLn "@media all and (prefers-color-scheme: dark) {"
+  putStrLn $ styleToCss zenburn
+  putStrLn "}"
 \end{code}
