@@ -21,3 +21,7 @@ for many of the algorithms used by Symtegration.
 [Yoo Chung]: https://chungyc.org/
 
 [github-username]: https://github.com/chungyc
+
+[![Build](https://github.com/symtegration/symtegration/actions/workflows/build.yaml/badge.svg)](https://github.com/symtegration/symtegration/actions/workflows/build.yaml)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9864/badge)](https://www.bestpractices.dev/projects/9864)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/symtegration/symtegration/badge)](https://scorecard.dev/viewer/?uri=github.com/symtegration/symtegration)
