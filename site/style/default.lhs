@@ -42,6 +42,7 @@ defaultStyle = do
   fontDefinitions
   genericStyle
   codeStyle
+  badgesStyle
   mediaStyles
 \end{code}
 
@@ -179,6 +180,13 @@ codeStyle = do
     sym padding $ em 0.5
 
     fontFamily [geistMono] [monospace]
+\end{code}
+
+\begin{code}
+badgesStyle :: Css
+badgesStyle = do
+  div # ".badges" ? do
+    textAlign $ alignSide sideLeft
 \end{code}
 
 \subsection{Media-specific styles}
