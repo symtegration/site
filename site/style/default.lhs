@@ -165,7 +165,7 @@ listsStyle = do
 \begin{code}
 codeStyle :: Css
 codeStyle = do
-  div # ".sourceCode" <> pre # ".shell" ? do
+  div # ".sourceCode" ? do
     borderStyle solid
     borderWidth $ px 1
     sym2 margin (em 1) (em 6)

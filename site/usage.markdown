@@ -7,7 +7,7 @@ description: Instructions on how to use Symtegration, a Haskell library for symb
 
 For using the Symtegration library locally, clone the source repository, build, and install it.
 
-```shell
+```bash
 $ git clone git@github.com:symtegration/symtegration.git
 $ cd symtegration
 $ stack build
@@ -41,7 +41,7 @@ When executing GHCi within the Symtegration project, it is best
 to load only the `Symtegration` module to avoid name collisions,
 so start GHCi without loading any modules.
 
-```shell
+```bash
 $ stack ghci --no-load
 ```
 
