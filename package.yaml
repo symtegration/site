@@ -1,5 +1,6 @@
 name:                symtegration-site
 version:             0.1.0
+homepage:            https://symtegration.dev/
 github:              "symtegration/site"
 license:             Apache-2.0
 author:              "Yoo Chung"
