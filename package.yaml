@@ -8,8 +8,10 @@ maintainer:          "dev@chungyc.org"
 copyright:           "Copyright 2025 Yoo Chung"
 
 extra-source-files:
+- LICENSE
 - README.md
 - docs/**
+- site/**
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
