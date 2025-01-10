@@ -1,5 +1,7 @@
 \subsection{Preamble}
 
+We start off with the module imports.
+
 \begin{code}
 import Clay
 import Clay.Media qualified as Media
@@ -7,9 +9,15 @@ import Data.Text (Text)
 import Text.Pandoc.Highlighting (pygments, styleToCss, zenburn)
 \end{code}
 
+For this stylesheet, it is more convenient to use the name of the HTML elements
+than to use the Haskell function names for these, so we hide these functions
+from the Prelude.
+
 \begin{code}
 import Prelude hiding (div)
 \end{code}
+
+This outputs the stylesheet.
 
 \begin{code}
 main :: IO ()
@@ -18,6 +26,9 @@ main = do
   putSyntaxStyles
   putCss defaultStyle
 \end{code}
+
+These are the lengths we define to determine what we shall decide
+to be displays with wide widths or narrow widths.
 
 \begin{code}
 narrowWidth :: Size LengthUnit
@@ -40,11 +51,18 @@ defaultStyle = do
 
 \subsection{Definition of fonts}
 
+This imports the external stylesheets necessary for the fonts that are used.
+Since stylesheet imports must come first in a stylesheet,
+this must be called first.
+
 \begin{code}
 fontDefinitions :: IO ()
 fontDefinitions =
   putStrLn "@import url(https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nova+Mono&display=swap);"
 \end{code}
+
+These define names we use later when using fonts.  Using these instead of the font names
+directly makes it less likely that we use a font that we do not import above.
 
 \begin{code}
 geistMono :: Text
@@ -173,6 +191,8 @@ codeStyle = do
 
     fontFamily [geistMono] [monospace]
 \end{code}
+
+\subsection{Badges style}
 
 \begin{code}
 badgesStyle :: Css
