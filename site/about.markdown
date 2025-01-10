@@ -34,9 +34,9 @@ Their GitHub user name is [`@chungyc`][github-username].
 
 <div class="badges">
 [![Build](https://github.com/symtegration/symtegration/actions/workflows/build.yaml/badge.svg)](https://github.com/symtegration/symtegration/actions/workflows/build.yaml)
-[![codecov](https://codecov.io/gh/symtegration/symtegration/graph/badge.svg?token=CNBUMA1CKD)](https://codecov.io/gh/symtegration/symtegration)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9864/badge)](https://www.bestpractices.dev/projects/9864)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/symtegration/symtegration/badge)](https://scorecard.dev/viewer/?uri=github.com/symtegration/symtegration)
+[![codecov](https://codecov.io/gh/symtegration/symtegration/graph/badge.svg?token=CNBUMA1CKD)](https://codecov.io/gh/symtegration/symtegration)
 </div>
 
 </div>
