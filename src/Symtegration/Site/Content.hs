@@ -6,6 +6,7 @@
 module Symtegration.Site.Content where
 
 import Symtegration
+import Symtegration.Symbolic
 import Text.Blaze.Html5
 
 -- | Turn a list of expressions into HTML showing an expression integrated into its integral.
@@ -18,7 +19,9 @@ integralExamples = mapM_ (p . integralExample)
 integralExample :: Expression -> Html
 integralExample e = toHtml equation
   where
-    equation = "\\( \\int " <> toLaTeX e <> " \\, dx = " <> t <> " \\)"
+    equation = "\\( \\int " <> delimit (toLaTeX e) <> " \\, dx = " <> t <> " \\)"
+    delimit v | (_ :+: _) <- e = brace v | (_ :-: _) <- e = brace v | otherwise = v
+    brace v = "\\left(" <> v <> "\\right)"
     t
       | Just e' <- integrate "x" e = toLaTeX e'
       | otherwise = "\\bot"
