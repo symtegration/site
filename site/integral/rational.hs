@@ -23,7 +23,7 @@ main = ByteString.putStr $ renderHtml $ do
     "Some may not be feasible to derive if they require solutions to polynomials of degree 5 or more. "
     "Others would be feasible, but would require support for deriving real roots of "
     "simultaneous polynomials beyond those that are rational numbers, "
-    "or support for solving general cubic and quartic polynomials. "
+    "or support for solving general quartic polynomials. "
 
   integralExamples
     [ 1 / (1 + x ** 4),
