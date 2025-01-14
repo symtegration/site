@@ -54,7 +54,7 @@ where symbols can be entered as strings when the [`OverloadedStrings`] extension
 ```haskell
 >>> :load Symtegration
 >>> toHaskell <$> integrate "x" ("a" * "x" ** 4 + "x" + "b")
-Just "b * x + (1 / 2) * (x ** 2) + a * ((x ** 5) / 5)"
+Just "b * x + 1 / 2 * x ** 2 + a * (x ** 5) / 5"
 >>>
 >>> let (Just p) = integrate "x" ("x" ** 2)
 >>> evaluate p (\case "x" -> Just 1)
