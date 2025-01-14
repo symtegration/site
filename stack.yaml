@@ -11,4 +11,4 @@ packages:
 # Dependency packages to be pulled from upstream that are not in the snapshot.
 extra-deps:
 - git: https://github.com/symtegration/symtegration
-  commit: 'f0d317fed5457bc96c69495c26a53eab8b7716e1'
+  commit: '9e199ebfc7ab804c9eed04ec253556c0a6a811cf'
