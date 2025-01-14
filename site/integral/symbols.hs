@@ -10,6 +10,7 @@ main = ByteString.putStr $ renderHtml $ do
   integralExamples
     [ "a",
       "a" / "b",
+      "\\mu" * x,
       sin ("a" * x),
       exp "a" * sin "x",
       x * log ("a" * x ** 2),
