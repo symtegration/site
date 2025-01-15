@@ -30,6 +30,7 @@ cleanupIndexUrl url = url
 
 -- | Custom context used when including examples of integrals in the main example page.
 integralExampleContext :: Context String
-integralExampleContext = field "anchor" anchor <> siteContext
+integralExampleContext = field "anchor" anchor <> bodyContext <> siteContext
   where
     anchor item = pure $ takeBaseName $ toFilePath $ itemIdentifier item
+    bodyContext = mapContext demoteHeaders $ bodyField "body"
