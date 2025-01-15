@@ -27,7 +27,7 @@ and add `symtegration` as a dependency to the appropriate build targets.
 ```yaml
 extra-deps:
 - git: https://github.com/symtegration/symtegration
-  commit: '7d49eca9f48adf6740dcb3a7934872e3b91a30e6'
+  commit: '8cee55fbf0ac86565996e2d0209dac56e348bd6a'
 ```
 
 See the [library documentation] for more details as to how to use the library.
