@@ -80,9 +80,5 @@ rules = do
     route idRoute
     compile copyFileCompiler
 
-  match "LICENSE.txt" $ do
-    route idRoute
-    compile copyFileCompiler
-
   match "template/**" $ do
     compile templateBodyCompiler
