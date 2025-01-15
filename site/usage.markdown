@@ -32,7 +32,7 @@ extra-deps:
 
 See the [library documentation] for more details as to how to use the library.
 
-[library documentation]: https://doc.symtegration.dev/symtegration-0.3.0/Symtegration.html
+[library documentation]: https://doc.symtegration.dev/symtegration-0.4.0/Symtegration.html
 
 ## GHCi {#ghci}
 

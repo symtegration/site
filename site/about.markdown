@@ -16,7 +16,7 @@ See the [library documentation] for details on the library interface.
 
 [source repository]: https://github.com/symtegration/symtegration {itemprop="codeRepository"}
 
-[library documentation]: https://doc.symtegration.dev/symtegration-0.3.0/Symtegration.html
+[library documentation]: https://doc.symtegration.dev/symtegration-0.4.0/Symtegration.html
 
 <span itemprop="citation">_[Symbolic Integration I: Transcendental Functions]_ by Manuel Bronstein</span>
 is a primary reference for many of the algorithms used by Symtegration.
