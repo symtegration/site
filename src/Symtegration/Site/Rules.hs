@@ -62,6 +62,12 @@ rules = do
       makeItem ""
         >>= loadAndApplyTemplate "template/sitemap.xml" sitemapContext
 
+  match "404.html" $ do
+    route idRoute
+    compile $ do
+      pandocCompiler
+        >>= loadAndApplyTemplate "template/default.html" siteContext
+
   match "style/**.lhs" $ do
     route $ setExtension "css"
     compile $ haskellCompiler []
