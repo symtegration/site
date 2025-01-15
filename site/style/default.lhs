@@ -106,16 +106,15 @@ bodyStyle = do
 navStyle :: Css
 navStyle = do
   nav # ".site" ? do
-    float floatRight
-    textAlign $ alignSide sideRight
+    marginTop $ em 1
+    marginBottom $ em 1
+    textAlign center
     textShadow (em 0.25) (em 0.25) (em 0.2) (rgba 125 125 125 0.5)
     fontVariant smallCaps
     fontSize $ pct 120
-
     a ? do
-      display block
-      marginLeft $ em 3
-      marginBottom $ em 0.5
+      marginLeft $ em 1
+      marginRight $ em 1
 \end{code}
 
 \begin{code}
@@ -186,7 +185,7 @@ codeStyle = do
   div # ".sourceCode" ? do
     borderStyle solid
     borderWidth $ px 1
-    sym2 margin (em 1) (em 6)
+    sym2 margin (em 1) (em 2)
     sym padding $ em 0.5
 
     fontFamily [geistMono] [monospace]
@@ -198,7 +197,7 @@ codeStyle = do
 badgesStyle :: Css
 badgesStyle = do
   div # ".badges" ? do
-    textAlign $ alignSide sideLeft
+    textAlign center
 \end{code}
 
 \subsection{Media-specific styles}
@@ -210,19 +209,6 @@ mediaStyles = do
     body ? do
       marginLeft $ em 1
       marginRight $ em 1
-
-    nav # ".site" ? do
-      float none
-      textAlign center
-      marginTop $ em 1
-      marginBottom $ em 1
-      a ? do
-        display inline
-        marginLeft $ em 1
-        marginRight $ em 1
-
-    div # ".sourceCode" <> pre # ".shell" ? do
-      sym2 margin (em 1) (em 3)
 
   query Media.all [Media.minWidth wideWidth] $ do
     body ? do
