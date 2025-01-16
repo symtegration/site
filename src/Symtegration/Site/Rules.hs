@@ -97,7 +97,7 @@ rules = do
     route $ setExtension "css"
     compile $ haskellCompiler []
 
-  match "image/**.png" $ do
+  match ("image/**.png" .||. "image/**.webp") $ do
     route idRoute
     compile copyFileCompiler
 
