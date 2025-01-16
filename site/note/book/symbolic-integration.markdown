@@ -45,3 +45,6 @@ The exponent for \(a\) is the number of roots for \(B\),
 and the exponent for \(b\) is the number of roots for \(A\).
 Take care not to switch the exponents around.  It can be difficult to
 notice the mistake if this happens if one is not aware of the possibility.
+This is not the formula one would use while integrating,
+but it may well be what one might use to test an implementation
+computing the resultant.
