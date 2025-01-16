@@ -40,6 +40,7 @@ dependencies:
 - hakyll
 - pandoc
 - symtegration
+- text
 
 library:
   source-dirs: src

@@ -30,9 +30,9 @@ extra-deps:
   commit: '8cee55fbf0ac86565996e2d0209dac56e348bd6a'
 ```
 
-See the [library documentation] for more details as to how to use the library.
+See the [module documentation] for more details as to how to use the library.
 
-[library documentation]: https://doc.symtegration.dev/symtegration-0.4.0/Symtegration.html
+[module documentation]: https://doc.symtegration.dev/symtegration/latest/Symtegration.html
 
 ## GHCi {#ghci}
 

@@ -11,13 +11,13 @@ description: Project information about Symtegration, a Haskell library for symbo
 for symbolically integrating mathematical expressions.
 </span>
 The [source repository] for the project is located on GitHub.
-See the [library documentation] for details on the library interface.
+See the [module documentation] for details on the library interface.
 It is licensed under the [Apache-2.0 license].
 <link href="https://symtegration.dev/" itemprop="url">
 
 [source repository]: https://github.com/symtegration/symtegration {itemprop="codeRepository"}
 
-[library documentation]: https://doc.symtegration.dev/symtegration-0.4.0/Symtegration.html
+[module documentation]: https://doc.symtegration.dev/symtegration/latest/Symtegration.html
 
 [Apache-2.0 license]: https://www.apache.org/licenses/LICENSE-2.0 {itemprop="license"}
 

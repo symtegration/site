@@ -2,8 +2,8 @@
   <header>
     <h1 itemprop="headline">$title$</h1>
     $-partial("template/nav.html")$
-    $-if(author)$
     <div class="byline">
+      $-if(author)$
       <div class="author">Written by $for(author)$$body$$sep$, $endfor$.</div>
       $-endif$
       $-if(published)$
