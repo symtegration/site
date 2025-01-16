@@ -7,14 +7,15 @@
       <div class="author">Written by $for(author)$$body$$sep$, $endfor$.</div>
       $-endif$
       $-if(published)$
-      <div class="published">Published on <span itemprop="datePublished">$published$</span>.</div>
+      <div class="published">Published on <span itemprop="datePublished" content="$published$T00:00:00+00:00">$published$</span>.</div>
       $-endif$
       $-if(updated)$
-      <div class="updated">Updated on <span itemprop="dataModified">$updated$</span>.</div>
+      <div class="updated">Updated on <span itemprop="dataModified" content="$updated$T00:00:00+00:00">$updated$</span>.</div>
       $-endif$
     </div>
     $-if(description)$
     <meta itemprop="description" content="$description$">
+    <link itemprop="image" href="$if(image)$$image$$else$https://symtegration.dev/image/banner.webp$endif$">
     $-endif$
   </header>
   <div itemprop="articleBody">
