@@ -44,6 +44,7 @@ wideWidth = em 80
 defaultStyle :: Css
 defaultStyle = do
   genericStyle
+  noteStyle
   codeStyle
   badgesStyle
   mediaStyles
@@ -175,6 +176,34 @@ listsStyle :: Css
 listsStyle = do
   li |+ li ? marginTop (em 0.75)
   li |> (ul <> ol) ? marginTop (em 0.75)
+\end{code}
+
+\subsection{Note style}
+
+This is the style for notes, which are notes on various subjects under the \texttt{note/} directory.
+In particular, it contains styling for bylines, since these notes may have authors attributed
+to them and dates they have been published or updated to help readers determine their currency.
+
+\begin{code}
+noteStyle :: Css
+noteStyle = do
+  div # ".byline" ? do
+    textAlign center
+    sym2 margin (em 1) auto
+    borderLeftStyle solid
+    borderLeftWidth bylineBarWidth
+    borderLeftColor bylineBarColor
+    borderRightStyle solid
+    borderRightWidth bylineBarWidth
+    borderRightColor bylineBarColor
+
+    div ? do
+      sym2 margin (em 0.1) (em 1)
+      fontSize $ pct 75
+      fontStyle italic
+  where
+    bylineBarWidth = px 5
+    bylineBarColor = rgba 0 0 255 0.5
 \end{code}
 
 \subsection{Code style}

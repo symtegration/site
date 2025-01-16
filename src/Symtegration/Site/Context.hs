@@ -34,3 +34,34 @@ integralExampleContext = field "anchor" anchor <> bodyContext <> siteContext
   where
     anchor item = pure $ takeBaseName $ toFilePath $ itemIdentifier item
     bodyContext = mapContext demoteHeaders $ bodyField "body"
+
+-- | Custom context for notes.
+-- In particular, it sets @custombody@ signifying that the default template should
+-- delegate everything that goes into @body@ to the resource body.
+-- It can also include a list of authors encoded like @"name1|url1,name2,name3|url3"@.
+noteContext :: Context String
+noteContext = boolField "custombody" (const True) <> authorField <> siteContext
+  where
+    authorField = listFieldWith "author" siteContext linkAuthors
+
+    linkAuthors item = do
+      value <- getMetadataField (itemIdentifier item) "author"
+      case value of
+        Nothing -> noResult "no authors"
+        Just s -> pure $ map (flip itemSetBody item . encode) $ decode s
+
+    decode s = map split $ splitAll "," s
+
+    split s
+      | [name] <- l = (name, Nothing)
+      | (name : url : _) <- l = (name, Just url)
+      | otherwise = ("", Nothing)
+      where
+        l = splitAll "\\|" s
+
+    encode (name, Nothing) = authorSpan $ nameSpan name
+    encode (name, Just url) = authorSpan $ link url $ nameSpan name
+
+    authorSpan t = "<span itemprop='author' itemscope itemtype='https://schema.org/Person'>" <> t <> "</span>"
+    nameSpan t = "<span itemprop='name'>" <> t <> "</span>"
+    link url t = "<a href='" <> url <> "' itemprop='url'>" <> t <> "</a>"

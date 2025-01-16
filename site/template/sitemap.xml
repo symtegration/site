@@ -5,6 +5,10 @@
     <loc>https://symtegration.dev$url$</loc>
     $-if(updated)$
     <lastmod>$updated$</lastmod>
+    $-else$
+    $-if(published)$
+    <lastmod>$published$</lastmod>
+    $-endif$
     $-endif$
   </url>
   $-endfor$

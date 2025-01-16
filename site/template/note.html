@@ -1,0 +1,24 @@
+<article itemscope itemtype="https://schema.org/TechArticle">
+  <header>
+    <h1 itemprop="headline">$title$</h1>
+    $-partial("template/nav.html")$
+    $-if(author)$
+    <div class="byline">
+      <div class="author">Written by $for(author)$$body$$sep$, $endfor$.</div>
+      $-endif$
+      $-if(published)$
+      <div class="published">Published on <span itemprop="datePublished">$published$</span>.</div>
+      $-endif$
+      $-if(updated)$
+      <div class="updated">Updated on <span itemprop="dataModified">$updated$</span>.</div>
+      $-endif$
+    </div>
+    $-if(description)$
+    <meta itemprop="description" content="$description$">
+    $-endif$
+  </header>
+  <div itemprop="articleBody">
+    $-body$
+  </div>
+</article>
+$partial("template/footer.html")$

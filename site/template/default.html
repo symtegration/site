@@ -39,25 +39,17 @@
   </head>
 
   <body>
-    <header>
-    </header>
-
+    $-if(custombody)$
+    $-body$
+    $-else$
     <main>
-      <h1>$title$</h1>
-
-      <nav class="site">
-        <a href="/">Home</a>
-        <a href="/usage/">Usage</a>
-        <a href="/integral/">Examples</a>
-        <a href="/about/">About</a>
-      </nav>
-
+      <header>
+        <h1>$title$</h1>
+        $-partial("template/nav.html")$
+      </header>
       $-body$
     </main>
-
-    <footer>
-      <p>Content licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" itemprop="license">Apache-2.0 license</a>.</p>
-      <p>Web site <a href="https://github.com/symtegration/site">generated</a> with <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-    </footer>
+    $-partial("template/footer.html")$
+    $-endif$
   </body>
 </html>

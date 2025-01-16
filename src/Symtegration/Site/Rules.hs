@@ -17,14 +17,7 @@ rules = do
   match "index.markdown" $ do
     route $ setExtension "html"
     compile $
-      pandocCompiler
-        >>= saveSnapshot "sitemap"
-        >>= loadAndApplyTemplate "template/default.html" siteContext
-
-  match ("**.markdown" .&&. complement "index.markdown") $ do
-    route toIndex
-    compile $
-      pandocCompiler
+      docCompiler
         >>= saveSnapshot "sitemap"
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
@@ -53,10 +46,42 @@ rules = do
         >>= loadAndApplyTemplate "template/examples.html" exampleContext
         >>= loadAndApplyTemplate "template/default.html" exampleContext
 
+  match "note/**.markdown" $ do
+    route toIndex
+    compile $
+      docCompiler
+        >>= saveSnapshot "sitemap"
+        >>= loadAndApplyTemplate "template/note.html" noteContext
+        >>= loadAndApplyTemplate "template/default.html" noteContext
+
+  match "note/**.hs" $ do
+    route toIndex
+    compile $
+      haskellCompiler []
+        >>= pure . fmap unpack
+        >>= saveSnapshot "sitemap"
+        >>= loadAndApplyTemplate "template/note.html" noteContext
+        >>= loadAndApplyTemplate "template/default.html" noteContext
+
+  match ("**.markdown" .&&. complement "index.markdown") $ do
+    route toIndex
+    compile $
+      docCompiler
+        >>= saveSnapshot "sitemap"
+        >>= loadAndApplyTemplate "template/default.html" siteContext
+
+  match ("**.hs" .&&. complement "integral/**.hs") $ do
+    route toIndex
+    compile $
+      haskellCompiler []
+        >>= pure . fmap unpack
+        >>= saveSnapshot "sitemap"
+        >>= loadAndApplyTemplate "template/default.html" siteContext
+
   create ["sitemap.xml"] $ do
     route idRoute
     compile $ do
-      let patterns = "**.markdown" .||. "integral/**.hs" .||. "integral/index.html"
+      let patterns = "**.markdown" .||. "**.hs" .||. "integral/index.html"
       urls <- loadAllSnapshots patterns "sitemap"
       let sitemapContext = listField "urls" siteContext (pure urls) <> siteContext
       makeItem ""
@@ -65,7 +90,7 @@ rules = do
   match "404.html" $ do
     route idRoute
     compile $ do
-      pandocCompiler
+      docCompiler
         >>= loadAndApplyTemplate "template/default.html" siteContext
 
   match "style/**.lhs" $ do
