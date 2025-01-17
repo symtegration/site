@@ -39,7 +39,7 @@ main = ByteString.putStr $ renderHtml $ do
 
     p "For any expression \\(x^n\\), except for when \\(n=-1\\),"
 
-    displayMath $ "\\int x^n \\, dx = \\frac{1}{n+1} x^{n+1}"
+    displayMath "\\int x^n \\, dx = \\frac{1}{n+1} x^{n+1}"
 
     p "\\(x^{-1} = \\frac{1}{x}\\) is the exception to the above pattern."
 
