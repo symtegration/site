@@ -3,7 +3,17 @@
 -- Copyright: Copyright 2025 Yoo Chung
 -- License: Apache-2.0
 -- Maintainer: dev@chungyc.org
-module Symtegration.Site.Content where
+module Symtegration.Site.Content
+  ( displayMath,
+    inlineMath,
+    integral,
+    integrated,
+    integralExample,
+    integralExamples,
+    x,
+    module Symtegration,
+  )
+where
 
 import Data.Text (Text)
 import Symtegration

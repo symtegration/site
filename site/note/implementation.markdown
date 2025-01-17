@@ -13,6 +13,8 @@ directly maps to what Symtegration can integrate.
 
     *   [Basic integrals](integration/basic/)
 
+    *   [General integration techniques](integration/techniques/)
+
 The [package documentation] reflects the overall structure of the implementation.
 In fact, almost all use cases only need to use the [Symtegration module].
 All of the other modules are in support of it, and they only need to be used directly in special cases.
