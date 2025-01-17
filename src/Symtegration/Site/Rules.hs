@@ -105,5 +105,9 @@ rules = do
     route idRoute
     compile copyFileCompiler
 
+  match "humans.txt" $ do
+    route idRoute
+    compile copyFileCompiler
+
   match "template/**" $ do
     compile templateBodyCompiler
