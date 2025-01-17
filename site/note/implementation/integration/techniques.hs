@@ -12,7 +12,7 @@ main = ByteString.putStr $ renderHtml $ do
     "Together, they can integrate functions that the direct methods cannot integrate directly. "
     "For example, the "
     a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Trigonometric.html" $
-      "Symtegration.Integration.Trigonometric"
+      "Symtegration" <> wbr <> ".Integration" <> wbr <> ".Trigonometric"
     " module cannot integrate "
     inlineMath $ toLaTeX $ sin ("a" * x)
     " by itself, but it can be integrated to "
