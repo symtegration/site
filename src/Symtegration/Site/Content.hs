@@ -4,7 +4,8 @@
 -- License: Apache-2.0
 -- Maintainer: dev@chungyc.org
 module Symtegration.Site.Content
-  ( displayMath,
+  ( symtegrationModule,
+    displayMath,
     inlineMath,
     integral,
     integrated,
@@ -18,7 +19,21 @@ where
 import Data.Text (Text)
 import Symtegration
 import Symtegration.Symbolic
-import Text.Blaze.Html5
+import Text.Blaze.Html5 hiding (map)
+import Text.Blaze.Html5.Attributes
+
+-- | Include the name of a Symtegration module as HTML.
+-- Each component of the module name is included as an element in the list,
+-- except for the initial "Symtegration" component.
+-- It will be linked to its Haddock documentation.
+symtegrationModule :: [Text] -> Html
+symtegrationModule xs = a ! href url $ moduleName
+  where
+    moduleName = rootModuleName <> mconcat (map ((wbr <>) . ("." <>) . toHtml) xs)
+    url = toValue $ urlPrefix <> mconcat (map ("-" <>) xs) <> ".html"
+
+    rootModuleName = "Symtegration"
+    urlPrefix = "https://doc.symtegration.dev/symtegration/latest/Symtegration"
 
 -- | Include LaTeX as display math.
 displayMath :: Text -> Html

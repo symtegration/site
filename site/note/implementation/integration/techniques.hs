@@ -11,63 +11,61 @@ main = ByteString.putStr $ renderHtml $ do
     "which work in with direct integration methods. "
     "Together, they can integrate functions that the direct methods cannot integrate directly. "
     "For example, the "
-    a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Trigonometric.html" $
-      "Symtegration" <> wbr <> ".Integration" <> wbr <> ".Trigonometric"
+    symtegrationModule ["Integration", "Trigonometric"]
     " module cannot integrate "
     inlineMath $ toLaTeX $ sin ("a" * x)
     " by itself, but it can be integrated to "
     inlineMath $ integrated $ sin ("a" * x)
     " by using the "
-    a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Substitution.html" $
-      "Symtegration.Integration.Substitution"
+    symtegrationModule ["Integration", "Substitution"]
     " module on top of the "
-    a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Trigonometric.html" $
-      "Symtegration.Integration.Trigonometric"
+    symtegrationModule ["Integration", "Trigonometric"]
     " module."
 
   p $ do
     "Symtegration does not integrate by parts at this time. "
-    "Further development of Symtegration is focused on systematic approaches first. "
 
-  section $ do
-    h2 ! A.id "constant" $ "Integrating with constant factors"
+  p $ do
+    "See also "
+    a ! href "/note/implementation/" $ "more implementation notes on Symtegration"
+    "."
+
+  section ! A.id "constant" $ do
+    h2 "Integrating with constant factors"
 
     p $ do
       "The "
-      a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Term.html" $
-        "Symtegration.Integration.Term"
+      symtegrationModule ["Integration", "Term"]
       " module can integrate a single additive term by separating out a constant factor, "
       "integrating the remaining factors, and then multiplying the constant factor with the integral. "
 
     displayMath "\\int a f \\, dx = a \\int f \\, dx"
 
-  section $ do
-    h2 ! A.id "term" $ "Integrating by term"
+  section ! A.id "term" $ do
+    h2 "Integrating by term"
 
     p $ do
       "The "
-      a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Sum.html" $
-        "Symtegration.Integration.Sum"
+      symtegrationModule ["Integration", "Sum"]
       " module integrates a sum by integrating each summand separately and adding the integrals together."
 
     displayMath "\\int \\left( \\sum f_i \\right) \\, dx = \\sum \\left( \\int f_i \\, dx \\right)"
 
-  section $ do
-    h2 ! A.id "substitution" $ "Integration by substitution"
+  section ! A.id "substitution" $ do
+    h2 "Integration by substitution"
 
     p $ do
       "The "
-      a ! href "https://doc.symtegration.dev/symtegration/latest/Symtegration-Integration-Substitution.html" $
-        "Symtegration.Integration.Substitution"
+      symtegrationModule ["Integration", "Substitution"]
       " module integrates by substitition. "
 
     p "If \\(f' = \\frac{df}{dx}\\) and \\(g' = \\frac{dg}{dx}\\), then by the chain rule we have"
 
-    displayMath $ "\\frac{d f(g(x))}{dx} = g'(x) f'(g(x))"
+    displayMath "\\frac{d f(g(x))}{dx} = g'(x) f'(g(x))"
 
     p "From this, it follows that"
 
-    displayMath $ "\\int g'(x) f'(g(x)) \\, dx = f(g(x))"
+    displayMath "\\int g'(x) f'(g(x)) \\, dx = f(g(x))"
 
     p $ do
       "If we have a function which is the multiplication of two other functions, "
@@ -86,10 +84,10 @@ main = ByteString.putStr $ renderHtml $ do
       "The variable multiplied by and added to a constant is a special case of "
       "integration by substitution, with \\(g = ax+b\\)."
 
-    displayMath $ "\\int a f'(ax + b) \\, dx = f(ax+b)"
+    displayMath "\\int a f'(ax + b) \\, dx = f(ax+b)"
 
-  section $ do
-    h2 ! A.id "parts" $ "Integration by parts"
+  section ! A.id "parts" $ do
+    h2 "Integration by parts"
 
     p "At this time, Symtegration does not integrate by parts, although it is still explained in this section. "
 
