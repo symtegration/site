@@ -34,8 +34,8 @@ main = ByteString.putStr $ renderHtml $ do
     a ! href "/note/implementation/" $ "more implementation notes on Symtegration"
     "."
 
-  section $ do
-    h2 ! A.id "powers" $ "Integration of powers of the variable"
+  section ! A.id "powers" $ do
+    h2 "Integration of powers of the variable"
 
     p "For any expression \\(x^n\\), except for when \\(n=-1\\),"
 
@@ -45,18 +45,18 @@ main = ByteString.putStr $ renderHtml $ do
 
     displayMath $ integralExample (1 / x)
 
-  section $ do
-    h2 ! A.id "exponential" $ "Integration of exponentials"
+  section ! A.id "exponential" $ do
+    h2 "Integration of exponentials"
 
     displayMath $ integralExample $ exp x
 
-  section $ do
-    h2 ! A.id "logarithm" $ "Integration of logarithms"
+  section ! A.id "logarithm" $ do
+    h2 "Integration of logarithms"
 
     displayMath $ integralExample $ log x
 
-  section $ do
-    h2 ! A.id "trigonometric" $ "Integration of trigonometric functions"
+  section ! A.id "trigonometric" $ do
+    h2 "Integration of trigonometric functions"
 
     displayMath $ integralExample $ sin x
     displayMath $ integralExample $ cos x
