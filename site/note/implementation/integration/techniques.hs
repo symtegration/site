@@ -23,9 +23,6 @@ main = ByteString.putStr $ renderHtml $ do
     " module."
 
   p $ do
-    "Symtegration does not integrate by parts at this time. "
-
-  p $ do
     "See also "
     a ! href "/note/implementation/" $ "more implementation notes on Symtegration"
     "."
@@ -89,7 +86,10 @@ main = ByteString.putStr $ renderHtml $ do
   section ! A.id "parts" $ do
     h2 "Integration by parts"
 
-    p "At this time, Symtegration does not integrate by parts, although it is still explained in this section. "
+    p $ do
+      "The "
+      symtegrationModule ["Integration", "Parts"]
+      " module integrates by parts. "
 
     p "By the product rule, the derivative of the product of two functions \\(f\\) and \\(g\\) is as follows."
 
