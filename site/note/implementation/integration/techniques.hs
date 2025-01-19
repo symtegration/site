@@ -83,6 +83,11 @@ main = ByteString.putStr $ renderHtml $ do
 
     displayMath "\\int a f'(ax + b) \\, dx = f(ax+b)"
 
+    p $ do
+      "Symtegration does not rearrange multiplicative terms aggressively when attempting integration by substitution. "
+      "For example, for \\((f \\cdot g) \\cdot h\\), it will not try to see if integration by substitution "
+      "can be done with \\(f \\cdot (g \\cdot h)\\). "
+
   section ! A.id "parts" $ do
     h2 "Integration by parts"
 
@@ -116,3 +121,8 @@ main = ByteString.putStr $ renderHtml $ do
       "such that \\(F = \\frac{df}{dx}\\), and hoping that \\(\\int f \\frac{dG}{dx} \\, dx\\) is "
       "easier to integrate.  If this does not work, we could try again with \\(G\\). "
       "Basically, we may be able to derive the integral of the original function from two easier integrals. "
+
+    p $ do
+      "Symtegration does not rearrange multiplicative terms aggressively when attempting integration by parts. "
+      "For example, for \\((f \\cdot g) \\cdot h\\), it will not try to see if integration by parts "
+      "can be done with \\(f \\cdot (g \\cdot h)\\). "
