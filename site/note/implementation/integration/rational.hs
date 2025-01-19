@@ -23,19 +23,40 @@ main = ByteString.putStr $ renderHtml $ do
     h2 "Representing rational functions"
 
     p $ do
-        "While the symbolic representation of mathematical expressions in Symtegration faithfully "
-        "represents the semantics of mathematical expressions written in Haskell, "
-        "we also use a special representation for polynomials to support the many "
-        "algorithsm for polynomials that are useful for symbolic integration. "
-        "The "
-        symtegrationModule ["Polynomial"]
-        " module includes the general operations that our polynomial representations need to use "
-        "and various algorithms for polynomials such as finding the greatest common divisor.  The "
-        symtegrationModule ["Polynomial", "Indexed"]
-        " module defines a concrete representation for polynomminals. "
+      "While the symbolic representation of mathematical expressions in Symtegration faithfully "
+      "represents the semantics of mathematical expressions written in Haskell, "
+      "we also use a special representation for polynomials to support the many "
+      "algorithsm for polynomials that are useful for symbolic integration. "
+      "The "
+      symtegrationModule ["Polynomial"]
+      " module includes the general operations that our polynomial representations need to support "
+      "and various algorithms for polynomials such as finding the greatest common divisor.  The "
+      symtegrationModule ["Polynomial", "Indexed"]
+      " module defines a concrete representation for polynomials. "
 
   section ! A.id "hermite" $ do
     h2 "Hermite reduction"
+
+    p $ do
+      "For polynomials \\(A\\) and \\(D\\) where the greatest common divisor is a constant, "
+      "Hermite reduction finds rational functions \\(g\\) and \\(h\\) such that "
+      "\\(h\\) has a squarefree denominator and "
+
+    displayMath "\\frac{A}{D} = \\frac{dg}{dx} + h"
+
+    p "This implies "
+
+    displayMath "\\int \\frac{A}{D} \\, dx = g + \\int h \\, dx"
+
+    p $ do
+      "With algortithms to integrate rational functions with squarefree denominators, "
+      "we can then derive the integral for \\(\\frac{A}{D}\\). "
+
+    p "For example, with Hermite reduction we can infer that "
+
+    displayMath $
+      "\\int \\frac{x^7 - 24x^4 - 4x^2 + 8x - 8}{x^8 + 6x^6 + 12x^4 + 8x^2} \\, dx = "
+        <> "\\frac{3}{x^2+2} + \\frac{8x^2+4}{x^5+4x^3+4x} + \\int \\frac{1}{x} \\, dx"
 
   section ! A.id "logterms" $ do
     h2 "Integrating the logarithmic terms"
