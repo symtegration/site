@@ -22,6 +22,18 @@ main = ByteString.putStr $ renderHtml $ do
   section ! A.id "representation" $ do
     h2 "Representing rational functions"
 
+    p $ do
+        "While the symbolic representation of mathematical expressions in Symtegration faithfully "
+        "represents the semantics of mathematical expressions written in Haskell, "
+        "we also use a special representation for polynomials to support the many "
+        "algorithsm for polynomials that are useful for symbolic integration. "
+        "The "
+        symtegrationModule ["Polynomial"]
+        " module includes the general operations that our polynomial representations need to use "
+        "and various algorithms for polynomials such as finding the greatest common divisor.  The "
+        symtegrationModule ["Polynomial", "Indexed"]
+        " module defines a concrete representation for polynomminals. "
+
   section ! A.id "hermite" $ do
     h2 "Hermite reduction"
 
