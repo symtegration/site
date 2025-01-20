@@ -100,15 +100,45 @@ main = ByteString.putStr $ renderHtml $ do
       "For example,"
 
     displayMath $
-      "\\int \\frac{x^4-3x^2+6}{x^6-5x^4+5x^2+4} \\, dx = " <>
-      "\\sum_{\\alpha \\mid \\alpha^2+\\frac{1}{4}=0} \\alpha \\log \\left( (800\\alpha^3 - 14\\alpha)x^3 - (400\\alpha^2-7)x^2 - (2440\\alpha^3-32\\alpha)x +792\\alpha^2 - 16 \\right)"
+      "\\int \\frac{x^4-3x^2+6}{x^6-5x^4+5x^2+4} \\, dx = "
+        <> "\\sum_{\\alpha \\mid \\alpha^2+\\frac{1}{4}=0} \\alpha \\log \\left( (800\\alpha^3 - 14\\alpha)x^3 - (400\\alpha^2-7)x^2 - (2440\\alpha^3-32\\alpha)x +792\\alpha^2 - 16 \\right)"
 
   section ! A.id "complextoatan" $ do
     h2 "Switching from complex logarithms to inverse tangents"
 
     p $ do
-      strong "Warning: "
-      em "Section not written yet."
+      "With integrals using complex logarithms, one problem is that definite integrals "
+      "cannot be computed in Haskell with such logarithms when evaluated using non-complex "
+      "number types. "
+
+    p $ do
+      "A more serious problem is that there can be discontinuities in the "
+      "indefinite integral despite the integrand and interval being continuous. "
+      "For example, the integral in the "
+      a ! href "#logterms" $ "previous section"
+      " has a discontinuity at \\(\\pm\\sqrt{2}\\).  If we tried to compute the definite integral "
+      "from 1 to 2 by substituting \\(x=1\\) and \\(x=2\\), we would get about -3.46, "
+      "when the correct value is about 2.81. "
+
+    p $ do
+      "This problem can be avoided if we can convert the complex logarithms into continuous real functions. "
+      "We use part of Rioboo's algorithm to turn complex logarithms into sums of inverse tangents. "
+      "Given polynomials \\(A\\) and \\(B\\) with real number coefficients, we can derive a sum of "
+      "tangents \\(f\\) such that "
+
+    displayMath "\\frac{df}{dx} = \\frac{d}{dx} \\left( i \\log \\frac{A + iB}{A - iB} \\right)"
+
+    p "This provides a method to convert complex logarithms to real functions.  For example, "
+
+    displayMath $
+      "\\frac{d}{dx} \\left( i \\log \\frac{(x^3-3x)+i(x^2-2)}{(x^3-3x)-i(x^2-2)} \\right) = "
+        <> "\\frac{d}{dx} \\left( 2 \\tan^{-1} \\frac{x^5-3x^2+x}{2} + 2 \\tan^{-1} x^3 + 2 \\tan^{-1} x \\right)"
+
+    p $ do
+      "If we can turn a complex logarithm with any polynomial argument into the form \\(i\\log\\frac{A+iB}{A-iB}\\), "
+      "this provides a method to turn the complex logartihm into a real function.  This is described in the "
+      a ! href "#complextoreal" $ "next section"
+      "."
 
   section ! A.id "complextoreal" $ do
     h2 "Switching from complex logarithms to real functions"
