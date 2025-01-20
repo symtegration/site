@@ -3,14 +3,14 @@ title: On the implementation of Symtegration
 description: Reference to various notes on the implementation of Symtegration, which is a Haskell library for symbolic integration.
 author: 'Yoo Chung|https://chungyc.org/'
 published: 2025-01-16
-updated: 2025-01-19
+updated: 2025-01-20
 ---
 
 The following are various notes on what the implementation of [Symtegration] does.
 In particular, the notes on what has been implemented for integration
 generally maps to what Symtegration can integrate.
 
-*   Integration
+*   [Integration](integration/)
 
     *   [Basic integrals](integration/basic/)
 
