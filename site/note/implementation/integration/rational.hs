@@ -103,11 +103,27 @@ main = ByteString.putStr $ renderHtml $ do
   section ! A.id "complextoatan" $ do
     h2 "Switching from complex logarithms to inverse tangents"
 
+    p $ do
+      strong "Warning: "
+      em "Section not written yet."
+
   section ! A.id "complextoreal" $ do
     h2 "Switching from complex logarithms to real functions"
+
+    p $ do
+      strong "Warning: "
+      em "Section not written yet."
 
   section ! A.id "solvepolynomials" $ do
     h2 "Solving polynomials"
 
+    p $ do
+      strong "Warning: "
+      em "Section not written yet."
+
   section ! A.id "together" $ do
     h2 "Tying it all together"
+
+    p $ do
+      strong "Warning: "
+      em "Section not written yet."
