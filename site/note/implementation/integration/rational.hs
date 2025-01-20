@@ -144,7 +144,9 @@ main = ByteString.putStr $ renderHtml $ do
     h2 "Switching from complex logarithms to real functions"
 
     p $ do
-      "If we have a pair of polynomials \\((R(t), S(t,x))\\) such that "
+      "If we have a pair of polynomials \\((R(t), S(t,x))\\) from the "
+      a ! href "#logterms" $ "Lazard-Rioboo-Trager algorithm"
+      " such that "
 
     displayMath "\\frac{df}{dx} = \\frac{d}{dx} \\left( \\sum_{\\alpha \\mid R(\\alpha)=0} \\alpha \\log S(\\alpha, x) \\right)"
 
