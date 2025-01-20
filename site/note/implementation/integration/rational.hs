@@ -15,6 +15,22 @@ main = ByteString.putStr $ renderHtml $ do
     " by Manuel Bronstein."
 
   p $ do
+    "Symtegration supports the integration of rational functions with only rational number coefficients. "
+    "It will not know what to do if the coefficients are symbolic. "
+    "This does not necessarily mean that any symbol appearing in a rational function will "
+    "prevent its integration.  For example, if the symbolic coefficient is a constant factor "
+    "on the entire rational function, we can integrate the rational function even if there "
+    "is a non-variable symbol. "
+
+  p "For instance, Symtegration will not integrate the following, "
+
+  displayMath $ integralExample $ x ** 2 / ("a" + "a" * x ** 2)
+
+  p "but it will integrate the following. "
+
+  displayMath $ integralExample $ (1 / "a") * (x ** 2 / (1 + x ** 2))
+
+  p $ do
     "See also "
     a ! href "/note/implementation/" $ "more implementation notes on Symtegration"
     "."
