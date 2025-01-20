@@ -144,8 +144,36 @@ main = ByteString.putStr $ renderHtml $ do
     h2 "Switching from complex logarithms to real functions"
 
     p $ do
-      strong "Warning: "
-      em "Section not written yet."
+      "If we have a pair of polynomials \\((R(t), S(t,x))\\) such that "
+
+    displayMath "\\frac{df}{dx} = \\frac{d}{dx} \\left( \\sum_{\\alpha \\mid R(\\alpha)=0} \\alpha \\log S(\\alpha, x) \\right)"
+
+    p $ do
+      "where \\(\\alpha\\) denotes the complex number solutions for \\(R(x)=0\\), "
+      "then with the other part of Rioboo's algorithm, it is possible to infer "
+      "polynomials \\(P(u,v)\\), \\(Q(u,v)\\), \\(A(u,v,x)\\), and \\(B(u,v,x)\\) such that "
+
+    displayMath "\\frac{df}{dx} = \\frac{d}{dx} \\left( \\sum_{\\alpha, \\beta \\mid P(\\alpha, \\beta) = Q(\\alpha, \\beta) = 0, \\beta > 0} \\left( \\alpha \\log \\left( A(\\alpha, \\beta, x)^2 + B(\\alpha, \\beta, x)^2 \\right) + \\beta g_{\\alpha,\\beta}(x) \\right) + \\sum_{\\gamma \\mid R(\\gamma)=0} \\gamma \\log S(\\gamma, x) \\right)"
+
+    p "where"
+
+    ul $ do
+      li "\\(u=\\alpha\\) and \\(v=\\beta\\) are real number solutions for \\(P(u,v)=0\\) and \\(Q(u,v)=0\\) such that \\(\\beta > 0\\)"
+
+      li "\\(t=\\gamma\\) are real number solutions for \\(R(t)=0\\)"
+
+      li $ do
+        p $ do
+          "\\(g_{\\alpha,\\beta}(x)\\) is the real function derived from the "
+          "following complex logarithm as specified by the "
+          a ! href "#complextoatan" $ "previous section"
+          ": "
+
+        displayMath "\\frac{d}{dx} g_{\\alpha,\\beta}(x) = \\frac{d}{dx} \\left( i \\log \\frac{A(\\alpha,\\beta) + i B(\\alpha,\\beta)}{A(\\alpha,\\beta) - i B(\\alpha,\\beta} \\right)"
+
+    p $ do
+      "If we can derive all real number solutions for \\(P(u,v)=0\\), \\(Q(u,v)=0\\), and \\(R(t)=0\\), "
+      "we could then derive an integral for a rational function in a real function form. "
 
   section ! A.id "solvepolynomials" $ do
     h2 "Solving polynomials"
