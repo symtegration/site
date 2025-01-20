@@ -77,11 +77,37 @@ main = ByteString.putStr $ renderHtml $ do
   section ! A.id "logterms" $ do
     h2 "Integrating the logarithmic terms"
 
+    p $ do
+      "If for a rational function \\(h = \\frac{A}{D}\\), the degree of \\(A\\) is less than the degree of \\(D\\) "
+      "and \\(D\\) is squarefree, then there exist algorithms which can integrate \\(h\\). "
+      "A squarefree polynomial is a polynomial which has no square non-constant factor, "
+      "i.e., there is no non-constant polynomial \\(B\\) such that \\(B^2\\) divides "
+      "the polynomial exactly.  The particular algorithm which Symtegration uses for "
+      "this purpose is the Lazard-Rioboo-Trager algorithm. "
+
+    p $ do
+      "Specifically, the Lazard-Rioboo-Trager algorithm finds pairs of polynomials \\((Q_i(t), S_i(t, x))\\) such that "
+
+    displayMath "\\int \\frac{A}{D} \\, dx = \\sum_{i=1}^n \\sum_{\\alpha \\mid Q_i(\\alpha) = 0} \\alpha \\log S_i(\\alpha, x)"
+
+    p $ do
+      "Note that each \\(S_i\\) is a polynomial of two variables. "
+      "If we can find all roots for all \\(Q_i\\), we can fully write out the integral. "
+      "However, the roots can be complex numbers, so the integral may involve complex logarithms. "
+      "For example,"
+
+    displayMath $
+      "\\int \\frac{x^4-3x^2+6}{x^6-5x^4+5x^2+4} \\, dx = " <>
+      "\\sum_{\\alpha \\mid \\alpha^2+\\frac{1}{4}=0} \\alpha \\log \\left( (800\\alpha^3 - 14\\alpha)x^3 - (400\\alpha^2-7)x^2 - (2440\\alpha^3-32\\alpha)x +792\\alpha^2 - 16 \\right)"
+
   section ! A.id "complextoatan" $ do
     h2 "Switching from complex logarithms to inverse tangents"
 
   section ! A.id "complextoreal" $ do
     h2 "Switching from complex logarithms to real functions"
+
+  section ! A.id "solvepolynomials" $ do
+    h2 "Solving polynomials"
 
   section ! A.id "together" $ do
     h2 "Tying it all together"
