@@ -213,6 +213,26 @@ main = ByteString.putStr $ renderHtml $ do
   section ! A.id "together" $ do
     h2 "Tying it all together"
 
-    p $ do
-      strong "Warning: "
-      em "Section not written yet."
+    p "In conclusion, to integrate a rational function \\(f\\) with rational number coefficients, Symtegration "
+
+    ol $ do
+      li $ do
+        "Applies "
+        a ! href "#hermite" $ "Hermite reduction"
+        " to derive \\(g\\) and \\(h\\) such that \\(\\int f \\, dx = g + \\int h \\, dx\\). "
+
+      li $ do
+        "For \\(h = \\frac{p}{q}\\), uses polynomial division to divide \\(p\\) by \\(q\\) to derive "
+        "\\(h = s + \\frac{r}{q}\\), so that the degre of \\(r\\) is less than the degree of \\(q\\). "
+
+        ul $ do
+          li $ do
+            "Deriving the integral for the polynomial \\(s\\) is straightforward, "
+            "so the only thing remaining is to integrate \\(\\frac{r}{q}\\). "
+
+      li $ do
+        "Interates \\(\\frac{r}{q}\\) into a "
+        a ! href "#logterms" $ "sum of logarithms"
+        " and turns "
+        a ! href "#complextoreal" $ "complex logarithms into real functions"
+        "."
