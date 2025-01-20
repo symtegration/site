@@ -181,8 +181,34 @@ main = ByteString.putStr $ renderHtml $ do
     h2 "Solving polynomials"
 
     p $ do
-      strong "Warning: "
-      em "Section not written yet."
+      "In the "
+      a ! href "#complextoreal" $ "previous section"
+      ", we required real number solutions for polynomials to fully integrate "
+      "rational functions with real number coefficients in to real functions, "
+      "at least if we want a representation concrete enough that we can compute "
+      "actual values from. "
+
+    p $ do
+      "The "
+      symtegrationModule ["Polynomial", "Solve"]
+      " module provides some ability to solve univariate polynomials with real number coefficients. "
+      "Specifically, it computes all real number roots for linear, quadratic, and cubic polynomials. "
+      "It can also compute all real number roots for a number of special cases for quatric polynomials. "
+
+    p $ do
+      "We also need to find the real number solutions for two polynomials with two variables. "
+      "To do so, we take advantage of the fact that the resultant of two polynomials are zero "
+      "if and only if the two polynomials have a common root.  For two polynomials \\(P(u,v)\\) and "
+      "\\(Q(u,v)\\), we compute the resultant in terms of \\(u\\), which is a polynomial in \\(v\\). "
+      "We find a solution to this polynomial to find values of \\(v\\) where the resultant is zero, "
+      "so that there must be a common \\(u\\) which satisfies both \\(P=0\\) and \\(Q=0\\). "
+      "We then substitute the value of \\(v\\) and solve both polynomials to find the common \\(u\\) values. "
+
+    p $ do
+      "Symtegration only supports deriving real number solutions for polynomials "
+      "with rational number coefficients at this time, which limits the integration of rational functions "
+      "when solutions to two polynomials with two variables involves solving polynomials with real number "
+      "coefficients which are not rational numbers. "
 
   section ! A.id "together" $ do
     h2 "Tying it all together"
