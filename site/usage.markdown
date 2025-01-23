@@ -72,7 +72,7 @@ Just (1 % 3)
 
 Symtegration can also be used in [IHaskell] to do symbolic integration.
 Its use can be seen in an [example IHaskell notebook],
-which you try out by [running on mybinder.org].
+which you can try out by [running on mybinder.org].
 
 [IHaskell]: https://github.com/IHaskell/IHaskell
 
