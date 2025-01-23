@@ -2,6 +2,7 @@
 front: true
 title: Symtegration
 description: Symtegration is a Haskell library for symbolic integration.
+head-extra: <link rel="privacy-policy" href="/about/#privacy">
 ---
 
 Symtegration is a Haskell library intended to support symbolic integration of mathematical expressions.

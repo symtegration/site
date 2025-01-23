@@ -44,3 +44,11 @@ Their GitHub user name is [`@chungyc`][github-username].
 
 </div>
 </div>
+
+## Privacy policy {#privacy}
+
+The maintainers of this web site does not collect any user information at this time.
+However, this site is hosted on [GitHub Pages], which does [log basic information] for security purposes.
+
+[GitHub Pages]: https://docs.github.com/en/pages
+[log basic information]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection
