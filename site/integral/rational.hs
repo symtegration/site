@@ -38,8 +38,8 @@ main = ByteString.putStr $ renderHtml $ do
     h2 "Unsupported integrals"
 
     p $ do
-      "Some rational functions cannot be symbolically integrated yet. "
-      "Some may not be feasible to derive if they require solutions to polynomials of degree 5 or more. "
+      "Some rational functions cannot be symbolically integrated. "
+      "This is the case if their integration requires solutions to polynomials of degree 5 or more. "
 
     integralExamples
       [ 1 / (1 + x ** 5),
