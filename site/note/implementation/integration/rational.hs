@@ -205,10 +205,10 @@ main = ByteString.putStr $ renderHtml $ do
       "We then substitute the value of \\(v\\) and solve both polynomials to find the common \\(u\\) values. "
 
     p $ do
-      "Symtegration only supports deriving real number solutions for polynomials "
-      "with rational number coefficients at this time, which limits the integration of rational functions "
-      "when solutions to two polynomials with two variables involves solving polynomials with real number "
-      "coefficients which are not rational numbers. "
+      "If Symtegration is not able to find real number solutions, "
+      "especially for two polynomials with two variables, "
+      "then it cannot derive an integral of a rational function in terms of only real functions. "
+      "In this case, it will fall back to using complex logarithms in the integral. "
 
   section ! A.id "together" $ do
     h2 "Tying it all together"
@@ -231,8 +231,13 @@ main = ByteString.putStr $ renderHtml $ do
             "so the only thing remaining is to integrate \\(\\frac{r}{q}\\). "
 
       li $ do
-        "Interates \\(\\frac{r}{q}\\) into a "
+        "Integrates \\(\\frac{r}{q}\\) into a "
         a ! href "#logterms" $ "sum of logarithms"
         " and turns "
         a ! href "#complextoreal" $ "complex logarithms into real functions"
         "."
+
+        ul $ do
+          li $ do
+            "If we are not able to turn complex logarithms into real functions, "
+            "we fall back to using the complex logarithms directly. "
