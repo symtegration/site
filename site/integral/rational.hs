@@ -26,7 +26,7 @@ main = ByteString.putStr $ renderHtml $ do
       "Symtegration makes an effort to return integrals in terms of purely real functions if it can, "
       "but if it cannot, it will try to return integrals which use complex logarithms. "
       "Care should be taken when using indefinite integrals with complex logarithms "
-      "to compute definite integrals, since they may have discontinuities within the integration interval. "
+      "to compute definite integrals, since they may have non-obvious discontinuities within the integration interval. "
 
     integralExamples
       [ 1 / (1 + x ** 3),
