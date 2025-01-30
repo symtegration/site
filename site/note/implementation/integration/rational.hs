@@ -112,7 +112,7 @@ main = ByteString.putStr $ renderHtml $ do
       "number types. "
 
     p $ do
-      "A more serious problem is that there can be discontinuities in the "
+      "A more serious problem is that there can be non-obvious discontinuities in the "
       "indefinite integral despite the integrand and interval being continuous. "
       "For example, the integral in the "
       a ! href "#logterms" $ "previous section"
