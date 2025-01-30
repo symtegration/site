@@ -1,6 +1,7 @@
 ---
 title: How to use Symtegration
 description: Instructions on how to use Symtegration, a Haskell library for symbolic integration.
+updated: 2025-01-30
 ---
 
 ## Installation {#install}
@@ -26,8 +27,7 @@ and add `symtegration` as a dependency to the appropriate build targets.
 
 ```yaml
 extra-deps:
-- git: https://github.com/symtegration/symtegration
-  commit: '8cee55fbf0ac86565996e2d0209dac56e348bd6a'
+- symtegration-0.6.1
 ```
 
 See the [module documentation] for more details as to how to use the library.
