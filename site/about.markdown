@@ -1,6 +1,7 @@
 ---
 title: About Symtegration
 description: Project information about Symtegration, a Haskell library for symbolic integration.
+updated: 2025-01-31
 ---
 
 <div itemscope itemtype="https://schema.org/AboutPage">
@@ -10,12 +11,15 @@ description: Project information about Symtegration, a Haskell library for symbo
 <span itemprop="name">Symtegration</span> is a <span itemprop="programmingLanguage">Haskell</span> library
 for symbolically integrating mathematical expressions.
 </span>
-The [source repository] for the project is located on GitHub.
+The [source repository] for the project is located on GitHub,
+and the package is also available on [Hackage][hackage-symtegration].
 See the [module documentation] for details on the library interface.
 It is licensed under the [Apache-2.0 license].
 <link href="https://symtegration.dev/" itemprop="url">
 
 [source repository]: https://github.com/symtegration/symtegration {itemprop="codeRepository"}
+
+[hackage-symtegration]: https://hackage.haskell.org/package/symtegration
 
 [module documentation]: https://doc.symtegration.dev/symtegration/latest/Symtegration.html
 
