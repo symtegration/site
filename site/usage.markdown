@@ -71,8 +71,9 @@ Just (1 % 3)
 ## IHaskell {#ihaskell}
 
 Symtegration can also be used in [IHaskell] to do symbolic integration.
-Its use can be seen in an [example IHaskell notebook],
-which you can try out by [running on mybinder.org].
+When used with the <a href="https://github.com/symtegration/ihaskell">IHaskell<wbr>.Display<wbr>.Symtegration</a>
+module, the integrals derived by Symtegration will be rendered as mathematical expressions.
+Their use can be seen in an [example IHaskell notebook], which you can try out by [running on mybinder.org].
 
 [IHaskell]: https://github.com/IHaskell/IHaskell
 
