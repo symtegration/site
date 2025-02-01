@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+      - '**.hs'
+      - 'site/**'
+      - '.github/workflows/deploy.yaml'
 
 jobs:
   hakyll:
