@@ -2,7 +2,7 @@
 # https://docs.haskellstack.org/en/stable/configure/yaml/
 
 # A 'specific' Stackage snapshot or a compiler version.
-snapshot: nightly-2025-02-01
+snapshot: lts-22.43
 
 # User packages to be built.
 packages:
@@ -11,3 +11,6 @@ packages:
 # Dependency packages to be pulled from upstream that are not in the snapshot.
 extra-deps:
 - symtegration-0.6.1
+# Uses properties and media query functions not in the Stack snapshot yet.
+- git: https://github.com/sebastiaanvisser/clay.git
+  commit: 3805af82149e3480f695a00f50067a70eaaead0d
