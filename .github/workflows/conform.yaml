@@ -12,9 +12,3 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: haskell-actions/hlint-scan@58c27088e4e1a45d453d9ade58b5ad34d09b0627 # v1.4.0
-
-  ormolu:
-    name: Ormolu
-    runs-on: ubuntu-latest
-    steps:
-      - uses: haskell-actions/run-ormolu@ca5937ef20713809e10da8f470956218014f8e96 # v20
