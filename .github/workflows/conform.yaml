@@ -17,4 +17,4 @@ jobs:
     name: Ormolu
     runs-on: ubuntu-latest
     steps:
-      - uses: haskell-actions/run-ormolu@ca5937ef20713809e10da8f470956218014f8e96 # v20
+      - uses: haskell-actions/run-ormolu@dc3c1636ad35ac1a3c7a1be974563297da23ef43 # v19
